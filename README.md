@@ -24,7 +24,7 @@ Uma aplicação Python robusta para migrar repositórios Git preservando todo o 
 ### 1. Clone ou baixe o projeto
 
 ```bash
-cd /Users/andrefiche/Documents/Projects/migration-github
+cd /Documents/Projects/migration-github
 ```
 
 ### 2. Instale as dependências
