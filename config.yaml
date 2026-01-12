@@ -1,0 +1,36 @@
+migrations:
+  - name: "exemplo-projeto"
+    source:
+      url: "https://github.com/usuario/repo-origem.git"
+      branch: "main"
+      auth:
+        type: "token"  # token, ssh, basic
+        token: "${SOURCE_GITHUB_TOKEN}"  # Variável de ambiente
+    destination:
+      url: "git@github.com:usuario/repo-destino.git"
+      create_if_missing: true
+      auth:
+        type: "ssh"
+        ssh_key: "~/.ssh/id_rsa"
+
+  - name: "outro-projeto"
+    source:
+      url: "https://github.com/outro/repo.git"
+      auth:
+        type: "token"
+        token: "${SOURCE_GITHUB_TOKEN}"
+    destination:
+      url: "git@github.com:outro/repo-copia.git"
+      auth:
+        type: "ssh"
+        ssh_key: "~/.ssh/id_rsa"
+
+batch:
+  max_concurrent: 3
+  retry_on_failure: true
+  max_retries: 2
+  retry_delay: 5
+
+logging:
+  level: "INFO"
+  file: "migration.log"
